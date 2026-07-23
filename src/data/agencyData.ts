@@ -586,10 +586,17 @@ export const QUOTE_OPTIONS: QuoteCalculatorOption[] = [
 ];
 
 export const SERVICES_DATA = SERVICES;
+export const SERVICE_DATA = SERVICES;
 export const PROJECTS_DATA = PROJECTS;
+export const PROJECT_DATA = PROJECTS;
 export const FOUNDER_INFO = AGENCY_INFO;
 export const TESTIMONIALS_DATA = TESTIMONIALS;
+export const TESTIMONIAL_DATA = TESTIMONIALS;
 export const PROCESS_DATA = PROCESS_STEPS;
+export const PROCESS_STEPS_DATA = PROCESS_STEPS;
 export const FAQS_DATA = FAQS;
+export const FAQ_DATA = FAQS;
 export const PRICING_DATA = PRICING_TIERS;
+export const PRICING_TIERS_DATA = PRICING_TIERS;
 export const USPS_DATA = USPS;
+export const USP_DATA = USPS;
