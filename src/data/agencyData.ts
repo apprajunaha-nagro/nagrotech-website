@@ -343,22 +343,6 @@ export const PROJECTS: ProjectItem[] = [
     year: '2026',
   },
   {
-    id: 'addiction-fitness-club',
-    title: 'THE ADDICTION GYM',
-    clientName: 'The Addiction Gym Dhanbad',
-    location: 'Dhanbad, India',
-    category: 'Business Sites',
-    image: './screenshots/addiction-gym.jpg',
-    description: 'Dhanbad’s premier fitness training club website featuring membership plans, trainer profiles, and instant WhatsApp booking.',
-    techStack: ['React', 'Tailwind CSS', 'WhatsApp Leads', 'Vercel'],
-    metrics: [
-      { label: 'Member Enrolment', value: '+310%' },
-      { label: 'Page Speed', value: '0.6s' },
-    ],
-    liveUrl: 'https://addiction-gym-dhanbad.vercel.app/',
-    year: '2026',
-  },
-  {
     id: 'dhanbad-grand-hotel',
     title: 'Grand Horizon Hospitality & Dining',
     clientName: 'Grand Horizon Hotel',
