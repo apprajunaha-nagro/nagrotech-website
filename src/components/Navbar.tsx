@@ -58,6 +58,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   ) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    if (href && href.startsWith('#')) {
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+
     onPageChange(pageId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
