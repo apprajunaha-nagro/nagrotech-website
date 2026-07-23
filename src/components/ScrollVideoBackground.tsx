@@ -9,7 +9,10 @@ export const ScrollVideoBackground: React.FC = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video) {
+      setIsLoaded(true);
+      return;
+    }
 
     const handleCanPlay = () => {
       setIsLoaded(true);
@@ -19,10 +22,10 @@ export const ScrollVideoBackground: React.FC = () => {
     video.addEventListener('canplaythrough', handleCanPlay);
     video.addEventListener('loadeddata', handleCanPlay);
 
-    // Safety fallback timer for preloader
+    // Safety fallback timer for instant preloader hide
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 2000);
+    }, 800);
 
     return () => {
       video.removeEventListener('canplaythrough', handleCanPlay);
@@ -51,12 +54,19 @@ export const ScrollVideoBackground: React.FC = () => {
 
     // LERP loop for smooth video scrubbing on scroll
     const loop = () => {
-      if (video && video.duration && !isNaN(video.duration)) {
-        const diff = targetTimeRef.current - currentTimeRef.current;
-        if (Math.abs(diff) > 0.01) {
-          currentTimeRef.current += diff * 0.15;
-          video.currentTime = Math.max(0, Math.min(video.duration - 0.05, currentTimeRef.current));
+      try {
+        if (video && video.duration && !isNaN(video.duration) && video.readyState >= 2) {
+          const diff = targetTimeRef.current - currentTimeRef.current;
+          if (Math.abs(diff) > 0.005) {
+            currentTimeRef.current += diff * 0.15;
+            const targetTime = Math.max(0, Math.min(video.duration - 0.05, currentTimeRef.current));
+            if (isFinite(targetTime) && !isNaN(targetTime)) {
+              video.currentTime = targetTime;
+            }
+          }
         }
+      } catch (e) {
+        // Ignore video seek exceptions
       }
       animationFrameIdRef.current = requestAnimationFrame(loop);
     };
