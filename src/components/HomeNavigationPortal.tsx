@@ -1,86 +1,155 @@
 import React from 'react';
 import { ActivePage } from '../types';
-import { ArrowRight, Code2, ShieldCheck, Zap, Layers, Sparkles, UserCheck } from 'lucide-react';
+import {
+  Gauge,
+  Briefcase,
+  ShieldCheck,
+  BarChart2,
+  Workflow,
+  FolderGit2,
+  Tag,
+  UserCheck,
+  Mail,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
 
 interface HomeNavigationPortalProps {
   onPageChange: (page: ActivePage) => void;
 }
 
-export const HomeNavigationPortal: React.FC<HomeNavigationPortalProps> = ({ onPageChange }) => {
-  const portalCards = [
+export const HomeNavigationPortal: React.FC<HomeNavigationPortalProps> = ({
+  onPageChange,
+}) => {
+  const pages = [
     {
-      page: 'services' as ActivePage,
-      title: 'Core Digital Services',
-      subtitle: 'React web design, Google Maps local SEO, and speed optimization.',
-      icon: Code2,
-      badge: 'Full Suite'
+      id: 'audit-tool' as ActivePage,
+      title: 'Speed & ROI Audit Tool',
+      tagline: 'Analyze your live website performance & potential revenue growth.',
+      icon: Gauge,
+      color: 'from-amber-500/20 to-orange-500/10 border-amber-500/30 text-amber-300',
+      badge: 'Interactive Tool',
     },
     {
-      page: 'why-us' as ActivePage,
+      id: 'services' as ActivePage,
+      title: 'Core Services & Tech Stack',
+      tagline: 'Website design, custom development, Google Maps SEO & speed optimization.',
+      icon: Briefcase,
+      color: 'from-teal-500/20 to-emerald-500/10 border-teal-500/30 text-teal-300',
+      badge: 'Full Suite',
+    },
+    {
+      id: 'why-us' as ActivePage,
       title: 'Why Choose Nagrotech',
-      subtitle: 'Sub-second speed architecture and direct founder supervision.',
-      icon: Zap,
-      badge: 'Zero Bloat'
-    },
-    {
-      page: 'compare-us' as ActivePage,
-      title: 'Competitor Comparison',
-      subtitle: 'Side-by-side technical matrix against traditional options.',
+      tagline: 'Sub-second speed, zero bloat, founder-led engineering & local Dhanbad focus.',
       icon: ShieldCheck,
-      badge: 'Matrix'
+      color: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/30 text-cyan-300',
+      badge: 'Our Differentiator',
     },
     {
-      page: 'process' as ActivePage,
-      title: '4-Step Process',
-      subtitle: 'From discovery to fast 7-day delivery workflow.',
-      icon: Layers,
-      badge: 'Fast Launch'
+      id: 'compare-us' as ActivePage,
+      title: 'Competitor Comparison',
+      tagline: 'Side-by-side matrix vs. traditional agencies, freelancers & WordPress builders.',
+      icon: BarChart2,
+      color: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-300',
+      badge: 'Transparent Matrix',
     },
     {
-      page: 'work' as ActivePage,
-      title: 'Portfolio & Proof',
-      subtitle: 'Explore 7 live client projects with speed benchmarks.',
-      icon: Sparkles,
-      badge: 'Live Demos'
+      id: 'process' as ActivePage,
+      title: '4-Step Agency Workflow',
+      tagline: 'Discovery, prototype simulator, clean build, and 7-day fast launch guarantee.',
+      icon: Workflow,
+      color: 'from-sky-500/20 to-indigo-500/10 border-sky-500/30 text-sky-300',
+      badge: 'Streamlined',
     },
     {
-      page: 'about' as ActivePage,
-      title: 'About Founder',
-      subtitle: 'Meet Lead Architect Raju Naha and agency vision.',
+      id: 'work' as ActivePage,
+      title: 'Portfolio & Client Work',
+      tagline: 'Explore real business websites, e-commerce stores & performance case studies.',
+      icon: FolderGit2,
+      color: 'from-purple-500/20 to-pink-500/10 border-purple-500/30 text-purple-300',
+      badge: 'Proven Results',
+    },
+    {
+      id: 'pricing' as ActivePage,
+      title: 'Price & Plans',
+      tagline: 'Fixed transparent rates, custom quotes & no hidden maintenance fees.',
+      icon: Tag,
+      color: 'from-emerald-500/20 to-green-500/10 border-emerald-500/30 text-emerald-300',
+      badge: 'Best Value',
+    },
+    {
+      id: 'about' as ActivePage,
+      title: 'About Founder & Agency',
+      tagline: 'Meet Raju Naha, founder vision, Dhanbad office, and client commitment.',
       icon: UserCheck,
-      badge: 'Leadership'
-    }
+      color: 'from-teal-500/20 to-cyan-500/10 border-teal-500/30 text-teal-300',
+      badge: 'Founder Spotlight',
+    },
+    {
+      id: 'contact' as ActivePage,
+      title: 'Contact & Head Office',
+      tagline: 'Direct WhatsApp booking, office address, map location & inquiry form.',
+      icon: Mail,
+      color: 'from-amber-500/20 to-teal-500/10 border-teal-500/30 text-teal-300',
+      badge: 'Fast Support',
+    },
   ];
 
   return (
-    <section className="py-12 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {portalCards.map((card, idx) => {
-          const Icon = card.icon;
-          return (
-            <button
-              key={idx}
-              onClick={() => onPageChange(card.page)}
-              className="text-left glass-card p-5 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group flex items-start justify-between"
-            >
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-400 text-[10px] font-bold uppercase tracking-wider">
-                  {card.badge}
-                </div>
-                <h3 className="text-base font-bold text-white group-hover:text-teal-300 transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
-                  {card.subtitle}
-                </p>
-              </div>
+    <section className="py-16 bg-[#03131a]/40 backdrop-blur-sm relative border-t border-teal-500/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>App Navigation</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
+            Explore Nagrotech Sections
+          </h2>
+          <p className="text-sm text-gray-300">
+            Click any section below to navigate directly to its standalone, feature-rich view.
+          </p>
+        </div>
 
-              <div className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-teal-400 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all">
-                <ArrowRight className="w-4 h-4" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {pages.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.id}
+                onClick={() => {
+                  onPageChange(p.id);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className={`group p-6 rounded-2xl bg-gradient-to-br ${p.color} border backdrop-blur-md hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col justify-between`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-xl bg-black/40 border border-white/10 group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/30 text-white/90 border border-white/10">
+                      {p.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white group-hover:text-teal-300 transition-colors mb-2">
+                    {p.title}
+                  </h3>
+                  <p className="text-xs text-gray-300 leading-relaxed mb-6">
+                    {p.tagline}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-bold text-teal-300 group-hover:text-white">
+                  <span>Open Page</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                </div>
               </div>
-            </button>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
