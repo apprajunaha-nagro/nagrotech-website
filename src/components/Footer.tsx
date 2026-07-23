@@ -105,7 +105,6 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               <li><a href="#compare-us" onClick={(e) => handleLinkClick(e, 'compare-us')} className="hover:text-teal-300 transition-colors">Compare Us Matrix</a></li>
               <li><a href="#process" onClick={(e) => handleLinkClick(e, 'process')} className="hover:text-teal-300 transition-colors">Our Process</a></li>
               <li><a href="#work" onClick={(e) => handleLinkClick(e, 'work')} className="hover:text-teal-300 transition-colors">Portfolio & Showcase</a></li>
-              <li><a href="#pricing" onClick={(e) => handleLinkClick(e, 'pricing')} className="hover:text-teal-300 transition-colors">Price & Plans</a></li>
               <li><a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-teal-300 transition-colors">About Founder</a></li>
               <li><a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')} className="hover:text-teal-300 transition-colors">Contact Us</a></li>
             </ul>
