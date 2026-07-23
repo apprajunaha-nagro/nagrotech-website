@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export const ScrollVideoBackground: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(true);
   const targetTimeRef = useRef<number>(0);
   const currentTimeRef = useRef<number>(0);
   const animationFrameIdRef = useRef<number | null>(null);
