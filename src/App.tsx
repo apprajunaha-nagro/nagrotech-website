@@ -75,10 +75,6 @@ export default function App() {
             <Portfolio
               onOpenProjectDetail={(project) => setSelectedProjectForModal(project)}
             />
-            <Pricing
-              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
-              onSelectTier={handleSelectTier}
-            />
             <Testimonials />
             <ContactSection preselectedService={preselectedService} />
           </main>
