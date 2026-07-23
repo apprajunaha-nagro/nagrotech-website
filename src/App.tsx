@@ -191,8 +191,8 @@ export default function App() {
         {activePage === 'pricing' && (
           <main>
             <PageHeader
-              badge="Pricing & Investment"
-              title="Transparent Packages & Custom Quote Estimator"
+              badge="Price & Plans"
+              title="Price & Plans Packages"
               subtitle="Honest upfront pricing with no hidden lock-in fees or surprises. Select a package or use our interactive price calculator."
               activePage={activePage}
               onPageChange={handlePageChange}
