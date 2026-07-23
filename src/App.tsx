@@ -10,7 +10,6 @@ import { Process } from './components/Process';
 import { LiveDemoSimulator } from './components/LiveDemoSimulator';
 import { BeforeAfterShowcase } from './components/BeforeAfterShowcase';
 import { Portfolio } from './components/Portfolio';
-import { Pricing } from './components/Pricing';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { AboutFounder } from './components/AboutFounder';
@@ -31,17 +30,6 @@ export default function App() {
 
   const handleSelectService = (serviceTitle: string) => {
     setPreselectedService(serviceTitle);
-  };
-
-  const handleSelectTier = (tierName: string) => {
-    setPreselectedService(`Package Request: ${tierName}`);
-    if (activePage !== 'contact' && activePage !== 'all') {
-      setActivePage('contact');
-    }
-    const contactElement = document.getElementById('contact');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const handlePageChange = (page: ActivePage) => {
@@ -191,26 +179,6 @@ export default function App() {
           </main>
         )}
 
-        {/* 8. PRICING DEDICATED PAGE */}
-        {activePage === 'pricing' && (
-          <main>
-            <PageHeader
-              badge="Price & Plans"
-              title="Price & Plans Packages"
-              subtitle="Honest upfront pricing with no hidden lock-in fees or surprises. Select a package or use our interactive price calculator."
-              activePage={activePage}
-              onPageChange={handlePageChange}
-              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
-            />
-            <Pricing
-              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
-              onSelectTier={handleSelectTier}
-            />
-            <FAQ />
-            <ContactSection preselectedService={preselectedService} />
-          </main>
-        )}
-
         {/* 9. ABOUT DEDICATED PAGE */}
         {activePage === 'about' && (
           <main>
@@ -260,10 +228,6 @@ export default function App() {
             <BeforeAfterShowcase />
             <Portfolio
               onOpenProjectDetail={(project) => setSelectedProjectForModal(project)}
-            />
-            <Pricing
-              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
-              onSelectTier={handleSelectTier}
             />
             <Testimonials />
             <FAQ />
