@@ -357,22 +357,6 @@ export const PROJECTS: ProjectItem[] = [
     liveUrl: 'https://www.nagro.in/',
     year: '2026',
   },
-  {
-    id: 'raju-naha-portfolio',
-    title: 'Raju Naha Tech Founder Portfolio',
-    clientName: 'Personal Brand',
-    location: 'Dhanbad, India',
-    category: 'Portfolios',
-    image: './raju-naha.jpg',
-    description: 'High-impact personal branding platform showcasing tech architecture, articles, client reviews, and direct booking.',
-    techStack: ['React', 'Tailwind', 'Framer Motion', 'SEO'],
-    metrics: [
-      { label: 'Direct Calls', value: '50+/mo' },
-      { label: 'Page Speed', value: '100/100' },
-    ],
-    liveUrl: 'https://www.nagro.in/',
-    year: '2026',
-  },
 ];
 
 export const PRICING_TIERS: PricingTier[] = [
