@@ -279,8 +279,8 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'coaching-iit-academy',
-    title: 'Maharshi IIT Academy',
-    clientName: 'Maharshi IIT Academy',
+    title: 'IIT Coaching Dhanbad',
+    clientName: 'IIT Coaching Dhanbad',
     location: 'Dhanbad, Jharkhand',
     category: 'Landing Pages',
     image: './screenshots/coaching.jpg',
@@ -295,8 +295,8 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'ca-dhanbad-portal',
-    title: 'CA Kashif Rahman & Company',
-    clientName: 'CA Kashif Rahman & Co.',
+    title: 'CA Firm Dhanbad',
+    clientName: 'CA Firm Dhanbad',
     location: 'Dhanbad, Jharkhand',
     category: 'Business Sites',
     image: './screenshots/ca-dhanbad.jpg',
