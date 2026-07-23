@@ -30,8 +30,6 @@ export const AGENCY_INFO = {
   ],
 };
 
-export const FOUNDER_INFO = AGENCY_INFO;
-
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web-design-dev',
@@ -377,8 +375,6 @@ export const PROJECTS: ProjectItem[] = [
   },
 ];
 
-export const PROJECTS_DATA = PROJECTS;
-
 export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'starter',
@@ -588,3 +584,12 @@ export const QUOTE_OPTIONS: QuoteCalculatorOption[] = [
   { id: 'maint-none', label: 'Self Managed (Free Training)', category: 'maintenance', priceINR: 0, desc: 'We train you to edit content yourself' },
   { id: 'maint-amc-monthly', label: 'Monthly AMC Care Package', category: 'maintenance', priceINR: 1999, desc: 'Backups, security & monthly updates' },
 ];
+
+export const SERVICES_DATA = SERVICES;
+export const PROJECTS_DATA = PROJECTS;
+export const FOUNDER_INFO = AGENCY_INFO;
+export const TESTIMONIALS_DATA = TESTIMONIALS;
+export const PROCESS_DATA = PROCESS_STEPS;
+export const FAQS_DATA = FAQS;
+export const PRICING_DATA = PRICING_TIERS;
+export const USPS_DATA = USPS;
