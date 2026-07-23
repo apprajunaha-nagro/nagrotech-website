@@ -27,9 +27,10 @@ export const AGENCY_INFO = {
     { label: 'Projects Delivered', value: '45+', sub: 'High Performing Websites' },
     { label: 'Client Retention Rate', value: '98%', sub: 'Long-term AMC Partners' },
     { label: 'Avg. Turnaround', value: '7-12 Days', sub: 'Fast & Reliable Launch' },
-    { label: 'Local Business Growth', value: '3.5x', sub: 'More Organic Inquiries' },
   ],
 };
+
+export const FOUNDER_INFO = AGENCY_INFO;
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -375,6 +376,8 @@ export const PROJECTS: ProjectItem[] = [
     year: '2026',
   },
 ];
+
+export const PROJECTS_DATA = PROJECTS;
 
 export const PRICING_TIERS: PricingTier[] = [
   {
