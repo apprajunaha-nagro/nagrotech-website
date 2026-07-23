@@ -357,6 +357,22 @@ export const PROJECTS: ProjectItem[] = [
     liveUrl: 'https://www.nagro.in/',
     year: '2026',
   },
+  {
+    id: 'dhanbad-gym-addiction',
+    title: 'Dhanbad Gym',
+    clientName: 'Dhanbad Gym (The Addiction Gym)',
+    location: 'Dhanbad, Jharkhand',
+    category: 'Business Sites',
+    image: './screenshots/addiction-gym.jpg',
+    description: 'Premier fitness center and gym portal in Dhanbad with workout plans, trainer profiles, and instant online trial booking.',
+    techStack: ['React', 'Tailwind CSS', 'WhatsApp Leads', 'Vercel'],
+    metrics: [
+      { label: 'Member Enrolment', value: '+310%' },
+      { label: 'Page Speed', value: '0.6s' },
+    ],
+    liveUrl: 'https://addiction-gym-dhanbad.vercel.app/',
+    year: '2026',
+  },
 ];
 
 export const PRICING_TIERS: PricingTier[] = [
