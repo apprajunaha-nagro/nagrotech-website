@@ -71,14 +71,6 @@ export const HomeNavigationPortal: React.FC<HomeNavigationPortalProps> = ({
       badge: 'Proven Results',
     },
     {
-      id: 'pricing' as ActivePage,
-      title: 'Price & Plans',
-      tagline: 'Fixed transparent rates, custom quotes & no hidden maintenance fees.',
-      icon: Tag,
-      color: 'from-emerald-500/20 to-green-500/10 border-emerald-500/30 text-emerald-300',
-      badge: 'Best Value',
-    },
-    {
       id: 'about' as ActivePage,
       title: 'About Founder & Agency',
       tagline: 'Meet Raju Naha, founder vision, Dhanbad office, and client commitment.',
