@@ -20,6 +20,7 @@ import { QuoteCalculatorModal } from './components/QuoteCalculatorModal';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { PageHeader } from './components/PageHeader';
 import { HomeNavigationPortal } from './components/HomeNavigationPortal';
+import { Pricing } from './components/Pricing';
 import { ProjectItem, ActivePage } from './types';
 
 export default function App() {
@@ -30,6 +31,11 @@ export default function App() {
 
   const handleSelectService = (serviceTitle: string) => {
     setPreselectedService(serviceTitle);
+  };
+
+  const handleSelectTier = (tierName: string) => {
+    setPreselectedService(`Pricing Tier: ${tierName}`);
+    setIsQuoteModalOpen(true);
   };
 
   const handlePageChange = (page: ActivePage) => {
