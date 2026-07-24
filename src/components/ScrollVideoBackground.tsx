@@ -2,10 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export const ScrollVideoBackground: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isLoaded, setIsLoaded] = useState<boolean>(true);
-  const targetTimeRef = useRef<number>(0);
-  const currentTimeRef = useRef<number>(0);
-  const animationFrameIdRef = useRef<number | null>(null);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -19,6 +16,11 @@ export const ScrollVideoBackground: React.FC = () => {
       video.play().catch(() => {});
     };
 
+    if (video.readyState >= 3) {
+      setIsLoaded(true);
+      video.play().catch(() => {});
+    }
+
     video.addEventListener('canplaythrough', handleCanPlay);
     video.addEventListener('loadeddata', handleCanPlay);
 
@@ -31,55 +33,6 @@ export const ScrollVideoBackground: React.FC = () => {
       video.removeEventListener('canplaythrough', handleCanPlay);
       video.removeEventListener('loadeddata', handleCanPlay);
       clearTimeout(timer);
-    };
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const updateScrollVideo = () => {
-      if (!video.duration || isNaN(video.duration)) return;
-
-      const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const scrollFraction = Math.max(0, Math.min(1, scrollTop / maxScroll));
-
-      targetTimeRef.current = scrollFraction * video.duration;
-    };
-
-    window.addEventListener('scroll', updateScrollVideo, { passive: true });
-    window.addEventListener('wheel', updateScrollVideo, { passive: true });
-    window.addEventListener('touchmove', updateScrollVideo, { passive: true });
-
-    // LERP loop for smooth video scrubbing on scroll
-    const loop = () => {
-      try {
-        if (video && video.duration && !isNaN(video.duration) && video.readyState >= 2) {
-          const diff = targetTimeRef.current - currentTimeRef.current;
-          if (Math.abs(diff) > 0.005) {
-            currentTimeRef.current += diff * 0.15;
-            const targetTime = Math.max(0, Math.min(video.duration - 0.05, currentTimeRef.current));
-            if (isFinite(targetTime) && !isNaN(targetTime)) {
-              video.currentTime = targetTime;
-            }
-          }
-        }
-      } catch (e) {
-        // Ignore video seek exceptions
-      }
-      animationFrameIdRef.current = requestAnimationFrame(loop);
-    };
-
-    animationFrameIdRef.current = requestAnimationFrame(loop);
-
-    return () => {
-      window.removeEventListener('scroll', updateScrollVideo);
-      window.removeEventListener('wheel', updateScrollVideo);
-      window.removeEventListener('touchmove', updateScrollVideo);
-      if (animationFrameIdRef.current) {
-        cancelAnimationFrame(animationFrameIdRef.current);
-      }
     };
   }, []);
 

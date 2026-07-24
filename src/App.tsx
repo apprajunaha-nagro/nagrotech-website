@@ -185,6 +185,26 @@ export default function App() {
           </main>
         )}
 
+        {/* 8. PRICING & PLANS DEDICATED PAGE */}
+        {activePage === 'pricing' && (
+          <main>
+            <PageHeader
+              badge="Pricing & Plans"
+              title="Transparent & Budget-Friendly Project Tiers"
+              subtitle="Choose the ideal digital design & engineering tier for your business, or calculate custom modular features with our estimator."
+              activePage={activePage}
+              onPageChange={handlePageChange}
+              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
+            />
+            <Pricing
+              onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
+              onSelectTier={handleSelectTier}
+            />
+            <FAQ />
+            <ContactSection preselectedService={preselectedService} />
+          </main>
+        )}
+
         {/* 9. ABOUT DEDICATED PAGE */}
         {activePage === 'about' && (
           <main>
