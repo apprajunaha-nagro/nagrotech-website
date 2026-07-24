@@ -14,56 +14,51 @@ export type ActivePage =
 export interface ServiceItem {
   id: string;
   title: string;
-  category: 'web-dev' | 'seo-growth' | 'design-cro';
-  description: string;
+  shortDesc: string;
+  fullDesc: string;
   iconName: string;
+  startingPrice: string;
+  category: 'web' | 'seo' | 'maintenance' | 'design' | 'growth';
+  badge?: string;
   features: string[];
-  deliverables: string[];
-  deliverableTime: string;
-  popular?: boolean;
 }
 
 export interface ProjectItem {
   id: string;
   title: string;
   clientName: string;
-  industry: string;
-  category: 'web-dev' | 'seo-growth' | 'design-cro';
-  description: string;
+  location: string;
+  category: string;
   image: string;
+  description: string;
+  techStack: string[];
+  metrics: { label: string; value: string }[];
   liveUrl: string;
-  metrics: {
-    speedBefore: string;
-    speedAfter: string;
-    trafficIncrease: string;
-    conversionBoost: string;
-  };
-  technologies: string[];
-  challenge: string;
-  solution: string;
+  year: string;
 }
 
 export interface PricingTier {
   id: string;
   name: string;
-  tagline: string;
-  priceINR: number;
-  amcCostINR?: number;
-  deliveryTime: string;
-  popular?: boolean;
+  price: string;
+  priceNote: string;
+  subtitle: string;
+  popular: boolean;
+  idealFor: string;
+  ctaText: string;
   features: string[];
-  bestFor: string;
+  deliverables: string[];
 }
 
-export interface TestimonialItem {
+export interface Testimonial {
   id: string;
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
-  quote: string;
-  rating: number;
+  clientName: string;
+  designation: string;
+  businessName: string;
   location: string;
+  avatar: string;
+  rating: number;
+  quote: string;
   projectType: string;
 }
 
@@ -71,17 +66,30 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'pricing' | 'process' | 'tech' | 'support';
+  category: string;
 }
 
-export interface FounderInfo {
-  name: string;
-  role: string;
-  location: string;
-  whatsapp: string;
-  phone: string;
-  email: string;
-  bio: string;
-  avatar: string;
-  skills: string[];
+export interface ProcessStep {
+  stepNumber: number;
+  title: string;
+  description: string;
+  duration: string;
+  deliverables: string[];
+  iconName: string;
+}
+
+export interface USPItem {
+  id: string;
+  title: string;
+  description: string;
+  iconName: string;
+  highlight: string;
+}
+
+export interface QuoteCalculatorOption {
+  id: string;
+  label: string;
+  category: 'type' | 'seo' | 'features' | 'maintenance';
+  priceINR: number;
+  desc: string;
 }
