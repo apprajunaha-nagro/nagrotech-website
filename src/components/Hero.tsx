@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
         {/* Subtitle */}
         <p className="max-w-3xl mx-auto text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-          High-performance React 19 web applications, Google Maps local SEO ranking, and lightning-fast digital solutions designed for high conversion. Built directly by Founder <span className="text-teal-400 font-semibold">{FOUNDER_INFO.name}</span>.
+          High-performance React 19 web applications, Google Maps local SEO ranking, and lightning-fast digital solutions designed for high conversion. Built directly by Founder <span className="text-teal-400 font-semibold">{FOUNDER_INFO.founder}</span>.
         </p>
 
         {/* CTA Buttons */}
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
           {/* Secondary WhatsApp CTA */}
           <a
-            href={`https://wa.me/${FOUNDER_INFO.whatsapp}?text=Hello%20Raju,%20I%20want%20to%20discuss%20a%20new%20website%20project%20for%20my%20business.`}
+            href={`https://wa.me/${FOUNDER_INFO.whatsappNumber}?text=Hello%20Raju,%20I%20want%20to%20discuss%20a%20new%20website%20project%20for%20my%20business.`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-900/80 hover:bg-slate-800/90 text-white border border-slate-700/80 font-bold text-base sm:text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-lg"

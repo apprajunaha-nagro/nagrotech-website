@@ -24,7 +24,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
     // Construct WhatsApp Redirect
     const messageText = `Hello Raju Naha,\n\nNew Lead Inquiry from Nagrotech Website:\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nRequested Service: ${formData.service}\nDetails: ${formData.message}`;
     const encodedMessage = encodeURIComponent(messageText);
-    window.open(`https://wa.me/${FOUNDER_INFO.whatsapp}?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/${FOUNDER_INFO.whatsappNumber}?text=${encodedMessage}`, '_blank');
   };
 
   return (
@@ -44,14 +44,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                 Let’s Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Exceptional</span>
               </h2>
               <p className="mt-4 text-slate-300 text-base leading-relaxed">
-                Have a project in mind or want to optimize your existing website? Contact Founder & Lead Architect <span className="text-teal-400 font-semibold">{FOUNDER_INFO.name}</span> directly.
+                Have a project in mind or want to optimize your existing website? Contact Founder & Lead Architect <span className="text-teal-400 font-semibold">{FOUNDER_INFO.founder}</span> directly.
               </p>
             </div>
 
             {/* Direct Cards */}
             <div className="space-y-4">
               <a
-                href={`https://wa.me/${FOUNDER_INFO.whatsapp}`}
+                href={`https://wa.me/${FOUNDER_INFO.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-4 rounded-2xl glass-card border border-teal-500/30 flex items-center gap-4 hover:border-teal-500/60 transition-all group"

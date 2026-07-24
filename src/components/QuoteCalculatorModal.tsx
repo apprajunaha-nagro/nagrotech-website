@@ -29,7 +29,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({ isOp
   const handleSendToWhatsApp = () => {
     const text = `Hello Raju Naha,\n\nI calculated a project quote on Nagrotech Estimator:\n\n- Pages: ${pageCount}\n- Google Maps Local SEO: ${needLocalSEO ? 'Yes' : 'No'}\n- Speed Optimization (100 Score): ${needSpeedAudit ? 'Yes' : 'No'}\n- Annual Maintenance (AMC): ${needAMC ? 'Yes' : 'No'}\n- Custom App Architecture: ${needCustomApp ? 'Yes' : 'No'}\n\nEstimated Total: ₹${totalEstimatedCost.toLocaleString('en-IN')}\n\nPlease confirm availability for a discussion.`;
     
-    window.open(`https://wa.me/${FOUNDER_INFO.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/${FOUNDER_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
     onClose();
   };
 

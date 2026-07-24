@@ -42,12 +42,12 @@ export const Testimonials: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-800/80 flex items-center gap-3">
                 <img
                   src={t.avatar}
-                  alt={t.name}
+                  alt={t.clientName}
                   className="w-11 h-11 rounded-full object-cover border border-teal-500/40"
                 />
                 <div>
-                  <div className="text-sm font-bold text-white">{t.name}</div>
-                  <div className="text-xs text-teal-400">{t.role}, {t.company}</div>
+                  <div className="text-sm font-bold text-white">{t.clientName}</div>
+                  <div className="text-xs text-teal-400">{t.designation}, {t.businessName}</div>
                   <div className="flex items-center gap-1 text-[10px] text-slate-400 mt-0.5">
                     <MapPin className="w-3 h-3 text-teal-400" />
                     <span>{t.location}</span>
