@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { PROJECTS_DATA } from '../data/agencyData';
 import { ProjectItem } from '../types';
-import { ExternalLink, Zap, Eye, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Zap, Eye, ArrowUpRight } from 'lucide-react';
 
 interface PortfolioProps {
   onOpenProjectDetail: (project: ProjectItem) => void;
 }
 
 export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProjectDetail }) => {
-  const [filter, setFilter] = useState<'all' | 'web-dev' | 'seo-growth' | 'design-cro'>('all');
+  const [filter, setFilter] = useState<'all' | 'Landing Pages' | 'Business Sites' | 'E-commerce' | 'Portfolios'>('all');
 
   const filteredProjects = PROJECTS_DATA.filter((p) => {
     if (filter === 'all') return true;
@@ -37,9 +37,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProjectDetail }) => 
         <div className="flex justify-center gap-2 mb-12 flex-wrap">
           {[
             { id: 'all', label: 'All Live Projects' },
-            { id: 'web-dev', label: 'React Web Apps' },
-            { id: 'seo-growth', label: 'Local SEO & Growth' },
-            { id: 'design-cro', label: 'Speed Optimization' },
+            { id: 'Business Sites', label: 'Business Sites' },
+            { id: 'Landing Pages', label: 'Landing Pages' },
+            { id: 'E-commerce', label: 'E-commerce' },
+            { id: 'Portfolios', label: 'Portfolios' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -69,15 +70,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProjectDetail }) => 
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    // Fallback visual background if local image missing
                     (e.target as HTMLElement).style.display = 'none';
                   }}
                 />
                 
-                {/* Fallback Overlay */}
+                {/* Category Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-4">
                   <span className="px-2.5 py-1 rounded-full bg-slate-900/90 border border-teal-500/30 text-teal-300 text-[10px] font-bold uppercase tracking-wider">
-                    {project.industry}
+                    {project.category}
                   </span>
                 </div>
               </div>
@@ -95,14 +95,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProjectDetail }) => 
 
                 {/* Metrics Pill Grid */}
                 <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
-                  <div className="p-2 rounded-xl bg-slate-900/80 border border-slate-800">
-                    <div className="text-[10px] text-slate-400">Load Speed</div>
-                    <div className="text-sm font-extrabold text-teal-400">{project.metrics.speedAfter}</div>
-                  </div>
-                  <div className="p-2 rounded-xl bg-slate-900/80 border border-slate-800">
-                    <div className="text-[10px] text-slate-400">Traffic Boost</div>
-                    <div className="text-sm font-extrabold text-cyan-400">{project.metrics.trafficIncrease}</div>
-                  </div>
+                  {project.metrics.slice(0, 2).map((metric, idx) => (
+                    <div key={idx} className="p-2 rounded-xl bg-slate-900/80 border border-slate-800">
+                      <div className="text-[10px] text-slate-400">{metric.label}</div>
+                      <div className={`text-sm font-extrabold ${idx === 0 ? 'text-teal-400' : 'text-cyan-400'}`}>{metric.value}</div>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Buttons */}

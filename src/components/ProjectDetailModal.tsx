@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProjectItem } from '../types';
-import { X, ExternalLink, Zap, CheckCircle2, Globe, ShieldCheck } from 'lucide-react';
+import { X, ExternalLink, Zap, Globe } from 'lucide-react';
 
 interface ProjectDetailModalProps {
   project: ProjectItem | null;
@@ -25,10 +25,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
         {/* Header info */}
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-2">
-            {project.industry} Case Study
+            {project.category} Case Study
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white">{project.title}</h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">Client: {project.clientName}</p>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">Client: {project.clientName} · {project.location} · {project.year}</p>
         </div>
 
         {/* Image Preview */}
@@ -43,47 +43,27 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           />
         </div>
 
-        {/* Speed Metrics Banner */}
+        {/* Metrics Banner */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
-          <div>
-            <div className="text-[10px] text-slate-400">Previous Speed</div>
-            <div className="text-sm font-bold text-red-400">{project.metrics.speedBefore}</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-slate-400">Nagrotech Speed</div>
-            <div className="text-sm font-black text-teal-400">{project.metrics.speedAfter}</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-slate-400">Traffic Gain</div>
-            <div className="text-sm font-bold text-cyan-400">{project.metrics.trafficIncrease}</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-slate-400">Conversion Boost</div>
-            <div className="text-sm font-bold text-teal-300">{project.metrics.conversionBoost}</div>
-          </div>
+          {project.metrics.map((metric, idx) => (
+            <div key={idx}>
+              <div className="text-[10px] text-slate-400">{metric.label}</div>
+              <div className={`text-sm font-bold ${idx % 2 === 0 ? 'text-teal-400' : 'text-cyan-400'}`}>{metric.value}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Challenge & Solution */}
-        <div className="space-y-4 text-xs sm:text-sm">
-          <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-            <h4 className="font-bold text-white mb-1">The Technical Challenge</h4>
-            <p className="text-slate-300 leading-relaxed">{project.challenge}</p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-teal-950/20 border border-teal-500/30">
-            <h4 className="font-bold text-white mb-1 flex items-center gap-1.5 text-teal-400">
-              <Zap className="w-4 h-4" />
-              <span>Nagrotech Solution</span>
-            </h4>
-            <p className="text-slate-300 leading-relaxed">{project.solution}</p>
-          </div>
+        {/* Project Description */}
+        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs sm:text-sm">
+          <h4 className="font-bold text-white mb-1">About This Project</h4>
+          <p className="text-slate-300 leading-relaxed">{project.description}</p>
         </div>
 
         {/* Tech Stack Chips */}
         <div>
           <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Technologies Used</div>
           <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, idx) => (
+            {project.techStack.map((tech, idx) => (
               <span key={idx} className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-teal-300 text-xs font-medium">
                 {tech}
               </span>
@@ -100,7 +80,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg"
           >
             <Globe className="w-4 h-4" />
-            <span>Visit Live Website ({project.liveUrl})</span>
+            <span>Visit Live Website</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>

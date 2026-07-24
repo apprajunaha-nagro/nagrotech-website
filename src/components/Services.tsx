@@ -1,6 +1,6 @@
 import React from 'react';
 import { SERVICES_DATA } from '../data/agencyData';
-import { Code2, TrendingUp, Zap, ArrowRight, CheckCircle2, Clock } from 'lucide-react';
+import { Code2, TrendingUp, Zap, ArrowRight, CheckCircle2, Layout, Server, ShieldCheck, Palette, MapPin, ShoppingBag } from 'lucide-react';
 
 interface ServicesProps {
   onSelectService: (serviceTitle: string) => void;
@@ -11,14 +11,17 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenQuote
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Code2':
-        return <Code2 className="w-6 h-6 text-teal-400" />;
-      case 'TrendingUp':
-        return <TrendingUp className="w-6 h-6 text-cyan-400" />;
-      case 'Zap':
-        return <Zap className="w-6 h-6 text-teal-300" />;
-      default:
-        return <Code2 className="w-6 h-6 text-teal-400" />;
+      case 'Layout': return <Layout className="w-6 h-6 text-teal-400" />;
+      case 'Server': return <Server className="w-6 h-6 text-cyan-400" />;
+      case 'TrendingUp': return <TrendingUp className="w-6 h-6 text-cyan-400" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-teal-300" />;
+      case 'Figma': return <Code2 className="w-6 h-6 text-teal-400" />;
+      case 'Palette': return <Palette className="w-6 h-6 text-cyan-400" />;
+      case 'MapPin': return <MapPin className="w-6 h-6 text-teal-400" />;
+      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6 text-cyan-300" />;
+      case 'Code2': return <Code2 className="w-6 h-6 text-teal-400" />;
+      case 'Zap': return <Zap className="w-6 h-6 text-teal-300" />;
+      default: return <Code2 className="w-6 h-6 text-teal-400" />;
     }
   };
 
@@ -41,19 +44,19 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenQuote
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {SERVICES_DATA.map((service) => (
             <div
               key={service.id}
               className={`glass-card rounded-3xl p-8 border flex flex-col justify-between relative transition-all duration-300 group hover:-translate-y-1 ${
-                service.popular
+                service.badge
                   ? 'border-teal-500/50 shadow-2xl shadow-teal-500/10 bg-gradient-to-b from-teal-950/20 to-slate-950'
                   : 'border-slate-800 hover:border-slate-700'
               }`}
             >
-              {service.popular && (
+              {service.badge && (
                 <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow-md">
-                  Most Requested Choice
+                  {service.badge}
                 </div>
               )}
 
@@ -67,15 +70,14 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenQuote
                     <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">
                       {service.title}
                     </h3>
-                    <div className="flex items-center gap-1 text-[11px] text-teal-400 font-semibold mt-1">
-                      <Clock className="w-3 h-3" />
-                      <span>Delivery in {service.deliverableTime}</span>
+                    <div className="text-[11px] text-teal-400 font-semibold mt-1">
+                      Starting at {service.startingPrice}
                     </div>
                   </div>
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {service.description}
+                  {service.shortDesc}
                 </p>
 
                 {/* Key Features */}
