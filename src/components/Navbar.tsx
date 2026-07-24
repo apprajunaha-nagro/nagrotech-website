@@ -42,6 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Home', pageId: 'home', href: '#hero' },
     { name: 'Speed Audit', pageId: 'audit-tool', href: '#audit-tool' },
     { name: 'Services', pageId: 'services', href: '#services' },
+    { name: 'Pricing & Plans', pageId: 'pricing', href: '#pricing' },
     { name: 'Why Us', pageId: 'why-us', href: '#why-us' },
     { name: 'Compare Us', pageId: 'compare-us', href: '#compare-us' },
     { name: 'Process', pageId: 'process', href: '#process' },

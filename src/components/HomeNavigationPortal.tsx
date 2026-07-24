@@ -39,6 +39,14 @@ export const HomeNavigationPortal: React.FC<HomeNavigationPortalProps> = ({
       badge: 'Full Suite',
     },
     {
+      id: 'pricing' as ActivePage,
+      title: 'Price & Plans',
+      tagline: 'Transparent package tiers, custom estimate builder, and AMC rates.',
+      icon: Tag,
+      color: 'from-amber-500/20 to-teal-500/10 border-teal-500/30 text-teal-300',
+      badge: 'Upfront Pricing',
+    },
+    {
       id: 'why-us' as ActivePage,
       title: 'Why Choose Nagrotech',
       tagline: 'Sub-second speed, zero bloat, founder-led engineering & local Dhanbad focus.',

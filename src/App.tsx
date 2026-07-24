@@ -7,7 +7,6 @@ import { Services } from './components/Services';
 import { WhyUs } from './components/WhyUs';
 import { CompetitorComparison } from './components/CompetitorComparison';
 import { Process } from './components/Process';
-import { LiveDemoSimulator } from './components/LiveDemoSimulator';
 import { BeforeAfterShowcase } from './components/BeforeAfterShowcase';
 import { Portfolio } from './components/Portfolio';
 import { Testimonials } from './components/Testimonials';
@@ -110,7 +109,6 @@ export default function App() {
               onSelectService={handleSelectService}
               onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
             />
-            <LiveDemoSimulator />
             <ContactSection preselectedService={preselectedService} />
           </main>
         )}
@@ -161,7 +159,6 @@ export default function App() {
               onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
             />
             <Process />
-            <LiveDemoSimulator />
             <ContactSection preselectedService={preselectedService} />
           </main>
         )}
@@ -247,7 +244,6 @@ export default function App() {
               onSelectService={handleSelectService}
               onOpenQuoteModal={() => setIsQuoteModalOpen(true)}
             />
-            <LiveDemoSimulator />
             <WhyUs />
             <CompetitorComparison />
             <Process />
